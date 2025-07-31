@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>გილოცავ!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <audio id="bg-music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <button id="playButton" class="fancy-button">
+  <span id="musicIcon">🎵</span>
+</button>
+
+
+  <div class="container">
+    <h1 class="message">Happiest birthday, UNI bestie💖🎉 </h1>
+
+    <div class="Cake">
+      <div class="cake">
+  <div class="candles">
+    <div class="digit-candle">1<div class="flame"></div></div>
+    <div class="digit-candle">8<div class="flame"></div></div>
+  </div>
+</div>
+      <div class="top-layer"></div>
+      <div class="middle-layer"></div>
+      <div class="bottom-layer"></div>
+      <div class="cream cream-pink"></div>
+      <div class="cream cream-red"></div> 
+    </div>
+
+    <div class="hearts-bg"></div>
+
+<div class="flip-container" onclick="this.classList.toggle('flipped')">
+  <div class="flipper">
+    <div class="front">click</div>
+    <div class="back">OKAY, fine. I won't call you kid anymore, CONGRATULATIONS!!!🎉</div>
+  </div>
+</div>
+
+
+
+
+    <div class="emoji-rain">
+      <div>🎉</div><div>🎂</div><div>🎈</div><div>💖</div><div>✨</div><div>🎁</div>
+    </div>
+  </div>
+
+
+  
+
+<script>
+  const button = document.getElementById("playButton");
+  const audio = document.getElementById("bg-music");
+  const musicIcon = document.getElementById("musicIcon");
+
+  let isPlaying = false;
+
+  button.addEventListener("click", () => {
+    if (!isPlaying) {
+      audio.play();
+      musicIcon.textContent = "🎵"; 
+    } else {
+    
+      musicIcon.innerHTML = `
+        <span style="position: relative; display: inline-block;">
+          🎵
+          <span style="position: absolute; top: 0; left: 0; color: red; font-size: 1.2em;">✖️</span>
+        </span>
+      `;
+      audio.pause();
+    }
+    isPlaying = !isPlaying;
+  });
+</script>
+
+
+
+
+</body>
+</html>
+
+
+<script>
+  const heartContainer = document.querySelector('.hearts-bg');
+  const emojis = ["💗", "💖", "💕", "💞", "💘", "💓", "💝", "❤️", "🌸", "✨"];
+  const count = 100;
+
+  for (let i = 0; i < count; i++) {
+    const heart = document.createElement("div");
+    heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+   
+    heart.style.position = "absolute";
+    heart.style.top = `${Math.random() * 100}vh`;
+    heart.style.left = `${Math.random() * 100}vw`;
+
+  
+    const size = Math.random() * 2 + 1.5;
+    heart.style.fontSize = `${size}rem`;
+
+    heart.style.opacity = "0.1";
+    heart.style.pointerEvents = "none";
+
+    heartContainer.appendChild(heart);
+  }
+</script>
+
+
